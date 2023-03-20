@@ -45,6 +45,11 @@ inoremap <C-d> <Delete>
 
 """ NERDTree
 map <leader>d :NERDTree<CR>
+
+""" Easymotion
+map <leader>f <Plug>(easymotion-s)
+nnoremap <leader>sc :nohlsearch<CR>
+
 """ Terminal
 nnoremap <c-t> :action ActivateTerminalToolWindow<CR>
 nnoremap <leader>t :action Terminal.OpenInTerminal<CR>

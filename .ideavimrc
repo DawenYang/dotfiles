@@ -76,6 +76,10 @@ nnoremap <leader>zc :action CollapseAllRegions<CR>
 nnoremap <leader>zo :action ExpandAllRegions<CR>
 nnoremap <leader>c :action CommentByLineComment<CR>
 
+""" Editor Copy and Paste
+map <C-c> <Action>(EditorCopy)
+map <C-v> <Action>(EditorPaste)
+
 """ Code Formatting
 nnoremap <Leader>= :action ReformatCode<CR>
 nnoremap <leader>o :action OptimizeImports<CR>
@@ -83,6 +87,9 @@ nnoremap <leader>o :action OptimizeImports<CR>
 """ Code Completion
 imap <C-o> <Action>(EditorCompleteStatement)
 imap <C-i> <Action>(EditorLineEnd)
+
+""" Code block
+map <C-b> <Action>(EditorCodeBlockEndWithSelection)
 
 """ LSP
 map gD <Action>(GotoTypeDeclaration)

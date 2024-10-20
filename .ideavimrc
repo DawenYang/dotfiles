@@ -4,7 +4,6 @@ let mapleader = " "
 
 """ Set vim plugins
 set hlsearch
-
 set incsearch
 set smartcase
 set ignorecase
@@ -12,17 +11,8 @@ set showmode
 set de=on
 set scrolloff=5
 set ideamarks
-set easymotion
-set surround
-set argtextobj
 set relativenumber
 set number
-set exchange
-set highlightedyank
-set textobj-entire
-set NERDTree
-set ReplaceWithRegister
-set ideajoin
 set idearefactormode=keep
 set incsearch
 
@@ -40,8 +30,29 @@ inoremap <C-a> <Home>
 inoremap <C-e> <End>
 inoremap <C-d> <Delete>
 
+""" easymotion
+" Additional installation for IdeaVim-EasyMotion and AceJump plugins.
+Plug 'easymotion/vim-easymotion'
+
+""" highlightedyank
+Plug 'machakann/vim-highlightedyank'
+
 """ NERDTree
-map <leader>d :NERDTree<CR>
+Plug 'preservim/nerdtree'
+" open project panel
+map <leader>a :NERDTree<CR>
+" ESC move control back to editor
+" Control - J/K to navigate on directory level
+" Shift - J/K to navigate inside a directory
+" P to go to parent, Shift - P to go to project parent
+" O to open directory, and Shift - O to open recursively
+" GO to open file in editor but cursor stays inside Panel
+" X to close directory
+" Control-r rename file
+" n new file
+" N new directory
+map <leader>qq <Action>(CloseContent)
+map <leader>qa <Action>(CloseAllEditors)
 
 """ Keep yanked content in register
 vnoremap <leader>p "_dP
@@ -51,22 +62,43 @@ map <leader>f <Plug>(easymotion-s)
 nnoremap <leader>sc :nohlsearch<CR>
 
 """ MultiCursor
+" mc start multicursor
+" mc next match
+" mx skip next match
+" mp remove current match and go back to previous one
 Plug 'terryma/vim-multiple-cursors'
 map mc <A-n>
 map mx <A-x>
 map mp <A-p>
 
-""" Navigation
+""" Surround Plugin
+" Emulates vim-surround
+" cs Change surroundings
+" cst Change surroundings tag
+" ds Delete surroundings
+" dst Delete surroundings tag
+" ys{motion}{surround} Add Surround
+Plug 'tpope/vim-surround'
+
+""" Commentary plugin
+Plug 'tpope/vim-commentary'
+" gcc add comments or undo
+
+nmap <S-Down> :action EditorCloneCaretBelow<CR>
+nmap <S-Up> :action EditorCloneCaretAbove<CR>
+
+""" Tab Navigation
 nnoremap <c-h> <c-w>h
 nnoremap <c-l> <c-w>l
-nnoremap <c-j> <c-w>j
-nnoremap <c-k> <c-w>k
-nnoremap <TAB> :action PreviousTab<CR>
-nnoremap <s-TAB> :action NextTab<CR>
+nnoremap <TAB> :action NextTab<CR>
+nnoremap <s-TAB> :action PreviousTab<CR>
+nnoremap sv :action SplitVertically<CR>
+nnoremap sr :action MoveTabRight<CR>
+nnoremap su :action Unsplit<CR>
 
 """ Editing source code
-vnoremap < <gv
-vnoremap > >gv
+vnoremap <s-TAB> <gv
+vnoremap <TAB> >gv
 nnoremap [[ :action MethodUp<CR>
 nnoremap ]] :action MethodDown<CR>
 map [e <Action>(GotoPreviousError)
@@ -81,7 +113,7 @@ map <C-c> <Action>(EditorCopy)
 map <C-v> <Action>(EditorPaste)
 
 """ Code Formatting
-nnoremap <Leader>= :action ReformatCode<CR>
+nnoremap <leader>= :action ReformatCode<CR>
 nnoremap <leader>o :action OptimizeImports<CR>
 
 """ Code Completion
@@ -95,8 +127,10 @@ map <C-b> <Action>(EditorCodeBlockEndWithSelection)
 map gD <Action>(GotoTypeDeclaration)
 map gd <Action>(GotoDeclaration)
 map gi <Action>(GotoImplementation)
-map gr <Action>(GotoDeclaration)
 map <leader>rn <Action>(RenameElement)
+" <Alt+Enter> Quick Fix Suggestion, stay as default jetbrains
 
 """ Window Operation
 map <leader>t <Action>(ActivateTerminalToolWindow)
+
+map <leader>rs <Action>(RestartIde)

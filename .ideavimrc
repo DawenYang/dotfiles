@@ -14,7 +14,6 @@ set ideamarks
 set relativenumber
 set number
 set idearefactormode=keep
-set incsearch
 
 """ Vim key mapping
 nnoremap L $
@@ -122,6 +121,14 @@ imap <C-i> <Action>(EditorLineEnd)
 
 """ Code block
 map <C-b> <Action>(EditorCodeBlockEndWithSelection)
+" <Ctrl+[> Go to the start of code block
+" <Ctrl+]> Go to the end of code block
+
+""" Code move - Intellij
+" <A+S+Up> move line up
+" <A+S+Down> move line down
+" <C+S+Up> move whole block up
+" <C+S+Down> move whole block down
 
 """ LSP
 map gD <Action>(GotoTypeDeclaration)

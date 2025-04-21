@@ -89,8 +89,8 @@ nmap <S-Up> :action EditorCloneCaretAbove<CR>
 """ Tab Navigation
 nnoremap <c-h> <c-w>h
 nnoremap <c-l> <c-w>l
-nnoremap <TAB> :action NextTab<CR>
-nnoremap <s-TAB> :action PreviousTab<CR>
+nnoremap <s-l> :action NextTab<CR>
+nnoremap <s-h> :action PreviousTab<CR>
 nnoremap sv :action SplitVertically<CR>
 nnoremap sr :action MoveTabRight<CR>
 nnoremap su :action Unsplit<CR>
@@ -98,6 +98,8 @@ nnoremap su :action Unsplit<CR>
 """ Editing source code
 vnoremap <s-TAB> <gv
 vnoremap <TAB> >gv
+inoremap <TAB> >gv
+inoremap <s-TAB> <gv
 nnoremap [[ :action MethodUp<CR>
 nnoremap ]] :action MethodDown<CR>
 map [e <Action>(GotoPreviousError)
@@ -119,25 +121,32 @@ nnoremap <leader>o :action OptimizeImports<CR>
 imap <C-o> <Action>(EditorCompleteStatement)
 imap <C-i> <Action>(EditorLineEnd)
 
-""" Code block
-map <C-b> <Action>(EditorCodeBlockEndWithSelection)
-" <Ctrl+[> Go to the start of code block
-" <Ctrl+]> Go to the end of code block
+""" Code block selection
+" vi{ visual inner block is better than IDE code block selection
 
-""" Code move - Intellij
-" <A+S+Up> move line up
-" <A+S+Down> move line down
-" <C+S+Up> move whole block up
-" <C+S+Down> move whole block down
+""" Code move
+map <C-Down> <Action>(MoveStatementDown)
+map <C-Up> <Action>(MoveStatementUp)
 
 """ LSP
 map gD <Action>(GotoTypeDeclaration)
 map gd <Action>(GotoDeclaration)
 map gi <Action>(GotoImplementation)
 map <leader>rn <Action>(RenameElement)
-" <Alt+Enter> Quick Fix Suggestion, stay as default jetbrains
+" Shift-K is mapped to ShowHoverInfo
 
-""" Window Operation
-map <leader>t <Action>(ActivateTerminalToolWindow)
+" leader code actions to trigger quick fixes
+map <leader>ca <Action>(ShowIntentionActions)
+
+""" Git Operations
+nmap <leader>gc <action>(CheckinProject)
+nmap <leader>ge <action>(Git.Commit.And.Push.Executor)
+nmap <leader>gp <action>(GitPushBranchAction)
+map <leader>gb <Action>(Git.Branches)
+
+""" Window Operations
+map <leader>wt <Action>(ActivateTerminalToolWindow)
+map <leader>wg <Action>(ActivateVersionControlToolWindow)
+" Shift Escape Hide Active Window
 
 map <leader>rs <Action>(RestartIde)

@@ -1,0 +1,42 @@
+// Zed keymap
+//
+// For information on binding keys, see the Zed
+// documentation: https://zed.dev/docs/key-bindings
+//
+// To see the default key bindings run `zed: open default keymap`
+// from the command palette.
+[
+  {
+    "context": "Workspace",
+    "bindings": {
+      "shift shift": "file_finder::Toggle"
+    }
+  },
+  // Vim custom keybindings
+  {
+    "context": "Editor && vim_mode == insert",
+    "bindings": {
+      "j k": "vim::NormalBefore",
+      "ctrl-i": "editor::MoveToEndOfLine",
+      "ctrl-h": "editor::MoveLeft",
+      "ctrl-l": "editor::MoveRight"
+    }
+  },
+  {
+    "context": "Editor && !menu",
+    "bindings": {
+      "ctrl-c": "editor::Copy", // vim default: return to normal mode
+      "ctrl-x": "editor::Cut", // vim default: decrement
+      "ctrl-v": "editor::Paste", // vim default: visual block mode
+      "ctrl-s": "workspace::Save", // vim default: show signature
+      "ctrl-a": "editor::SelectAll" // vim default: increment
+    }
+  },
+  {
+    "context": "(ProjectPanel && not_editing)",
+    "bindings": {
+      "ctrl-n": "project_panel::NewDirectory",
+      "n": "project_panel::NewFile"
+    }
+  }
+]

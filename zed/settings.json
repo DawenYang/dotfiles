@@ -1,0 +1,42 @@
+// Zed settings
+//
+// For information on how to configure Zed, see the Zed
+// documentation: https://zed.dev/docs/configuring-zed
+//
+// To see all of Zed's default settings without changing your
+// custom settings, run `zed: open default settings` from the
+// command palette (cmd-shift-p / ctrl-shift-p)
+{
+  "edit_predictions": {
+    "mode": "subtle"
+  },
+  "agent": {
+    "single_file_review": true,
+    "model_parameters": []
+  },
+  "languages": {},
+  "inlay_hints": {
+    "enabled": true
+  },
+  "buffer_font_family": "CodeNewRoman Nerd Font Mono",
+  "ui_font_family": "UbuntuSans Nerd Font Propo",
+  "ui_font_size": 16,
+  "buffer_font_size": 15,
+  "base_keymap": "JetBrains",
+  "icon_theme": {
+    "mode": "dark",
+    "light": "Zed (Default)",
+    "dark": "Zed (Default)"
+  },
+  "vim_mode": true,
+  "scrollbar": { "show": "never" },
+  "telemetry": {
+    "diagnostics": false,
+    "metrics": false
+  },
+  "theme": {
+    "mode": "dark",
+    "light": "Ayu Light",
+    "dark": "Everforest Dark"
+  }
+}

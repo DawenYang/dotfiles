@@ -38,5 +38,18 @@
       "ctrl-n": "project_panel::NewDirectory",
       "n": "project_panel::NewFile"
     }
+  },
+  {
+    "context": "vim_mode == visual",
+    "bindings": {
+      "shift-s": "vim::PushAddSurrounds"
+    }
+  },
+  {
+    "context": "Editor && vim_mode == visual && ! menu",
+    "bindings": {
+      "v": "editor::SelectLargerSyntaxNode",
+      "V": "editor::SelectSmallerSyntaxNode"
+    }
   }
 ]

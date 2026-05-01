@@ -51,5 +51,19 @@
       "v": "editor::SelectLargerSyntaxNode",
       "V": "editor::SelectSmallerSyntaxNode"
     }
-  }
+  },
+    {
+    // format entire file if no selections
+    "context": "Editor && vim_mode == normal",
+    "bindings": {
+      "space f": "editor::Format",
+    },
+  },
+  {
+    // format selections only if any
+    "context": "Editor && vim_mode == visual",
+    "bindings": {
+      "space f": "editor::FormatSelections",
+    },
+  },
 ]

@@ -105,30 +105,30 @@
         "after": ["<leader>p"]
       },
       // splits
-      { 
+      {
         "before": ["<Leader>", "v"],
-        "commands": [":vsplit"] 
+        "commands": [":vsplit"]
       },
-      { 
+      {
         "before": ["<Leader>", "s"],
-        "commands": [":split"] 
+        "commands": [":split"]
       },
       // panes
-      { 
+      {
         "before": ["<Leader>", "h"],
-        "commands": ["workbench.action.focusLeftGroup"] 
+        "commands": ["workbench.action.focusLeftGroup"]
       },
-      { 
+      {
         "before": ["<Leader>", "j"],
-        "commands": ["workbench.action.focusBelowGroup"] 
+        "commands": ["workbench.action.focusBelowGroup"]
       },
-      { 
+      {
         "before": ["<Leader>", "k"],
-        "commands": ["workbench.action.focusAboveGroup"] 
+        "commands": ["workbench.action.focusAboveGroup"]
       },
-      { 
+      {
         "before": ["<Leader>", "l"],
-        "commands": ["workbench.action.focusRightGroup"] 
+        "commands": ["workbench.action.focusRightGroup"]
       }
     ],
     "vim.leader": "<Space>",
@@ -181,8 +181,8 @@
     "black-formatter.args": [
         "--line-length",
         "88",
-        // "black default is 88", 
-        // "PES8 default is 79 and Flake8 using this PES8", 
+        // "black default is 88",
+        // "PES8 default is 79 and Flake8 using this PES8",
         "--experimental-string-processing"
     ],
     "flake8.args": [

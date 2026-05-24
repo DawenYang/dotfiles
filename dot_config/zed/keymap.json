@@ -69,7 +69,7 @@
   {
     "context": "VimControl && !menu",
     "bindings": {
-      "s": "editor::ToggleBeamJump",
+      "s": "vim::HelixJumpToWord",
     },
   },
 ]

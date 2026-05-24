@@ -68,7 +68,7 @@
     "dark": "Zed (Default)",
   },
   "vim_mode": true,
-  "scrollbar": { "show": "never" },
+  "scrollbar": { "show": "auto" },
   "telemetry": {
     "diagnostics": false,
     "metrics": false,
@@ -76,6 +76,6 @@
   "theme": {
     "mode": "dark",
     "light": "Ayu Light",
-    "dark": "Ayu Mirage",
+    "dark": "Terafox - opaque",
   },
 }

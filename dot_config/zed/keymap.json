@@ -66,10 +66,10 @@
       "space f": "editor::FormatSelections",
     },
   },
-  // {
-  //   "context": "VimControl && !menu",
-  //   "bindings": {
-  //     "s": "editor::ToggleBeamJump",
-  //   },
-  // },
+  {
+    "context": "VimControl && !menu",
+    "bindings": {
+      "s": "editor::ToggleBeamJump",
+    },
+  },
 ]

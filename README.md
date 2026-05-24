@@ -59,16 +59,46 @@ will warn instead of overwriting. In that case:
 
 ## Daily sync
 
-```powershell
-# Pull latest from remote and apply locally
-chezmoi update
+### Pull remote changes → local
 
-# After editing a config file, push changes back
-chezmoi re-add
+```powershell
+chezmoi update
+```
+
+### Push local changes → remote
+
+chezmoi manages two locations:
+
+- **Source** — the repo (`dot_config/zed/settings.json`, etc.)
+- **Target** — the actual config files chezmoi places at `~/.config/`
+
+When you edit a config file directly in the repo (source), just commit and push:
+
+```powershell
 chezmoi git -- add -A
 chezmoi git -- commit -m "describe your change"
 chezmoi git -- push
 ```
+
+When an app (e.g. Zed) modifies its config via the GUI, it writes to the target
+(`~/.config/zed/settings.json`). The source (repo) won't know about it until you
+explicitly sync back:
+
+```powershell
+chezmoi re-add              # copies target → source (updates repo files)
+chezmoi diff                # confirm what changed
+chezmoi git -- add -A
+chezmoi git -- commit -m "describe your change"
+chezmoi git -- push
+```
+
+> **How the sync path works on Windows:**
+> ```
+> repo (source)  →[chezmoi apply]→  ~/.config/zed/  ←[junction]←  %APPDATA%\Zed\
+> repo (source)  ←[chezmoi re-add]← ~/.config/zed/
+> ```
+> The junction makes `%APPDATA%\Zed` and `~/.config/zed/` the same directory.
+> `chezmoi re-add` is still required to propagate app GUI changes back to the repo.
 
 ## Adding a new app (Windows)
 

@@ -15,6 +15,11 @@ $Mappings = @(
         Name   = "VSCode"
         Source = "$env:APPDATA\Code\User"
         Target = "$env:USERPROFILE\.config\Code\User"
+    },
+    @{
+        Name   = "Nushell"
+        Source = "$env:APPDATA\nushell"
+        Target = "$env:USERPROFILE\.config\nushell"
     }
 )
 
@@ -32,7 +37,7 @@ foreach ($m in $Mappings) {
     }
 
     if (Test-Path $m.Source) {
-        Write-Warning "[$($m.Name)] $($m.Source) exists but is not a junction — skipping to avoid data loss."
+        Write-Warning "[$($m.Name)] $($m.Source) exists but is not a junction -- skipping to avoid data loss."
         Write-Warning "  Move its contents to $($m.Target), delete $($m.Source), then re-run 'chezmoi apply'."
         continue
     }

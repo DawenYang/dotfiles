@@ -74,22 +74,18 @@ chezmoi manages two locations:
 
 When you edit a config file directly in the repo (source), just commit and push:
 
-```powershell
-chezmoi git -- add -A
-chezmoi git -- commit -m "describe your change"
-chezmoi git -- push
+```nushell
+czpush "describe your change"
 ```
 
 When an app (e.g. Zed) modifies its config via the GUI, it writes to the target
 (`~/.config/zed/settings.json`). The source (repo) won't know about it until you
 explicitly sync back:
 
-```powershell
-chezmoi re-add              # copies target → source (updates repo files)
-chezmoi diff                # confirm what changed
-chezmoi git -- add -A
-chezmoi git -- commit -m "describe your change"
-chezmoi git -- push
+```nushell
+czr                         # copies target → source (updates repo files)
+czd                         # confirm what changed
+czpush "describe your change"
 ```
 
 > **How the sync path works on Windows:**

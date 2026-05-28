@@ -9,8 +9,8 @@
 {
   "agent_servers": {
     "claude-acp": {
-      "type": "registry"
-    }
+      "type": "registry",
+    },
   },
   "project_panel": {
     "dock": "left",
@@ -82,5 +82,10 @@
     "mode": "dark",
     "light": "Ayu Light",
     "dark": "Terafox - opaque",
+  },
+  "terminal": {
+    "shell": {
+      "program": "nu",
+    },
   },
 }

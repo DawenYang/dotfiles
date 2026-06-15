@@ -9,6 +9,9 @@
 {
   "agent_servers": {
     "claude-acp": {
+      "default_config_options": {
+        "model": "default"
+      },
       "type": "registry",
     },
   },
@@ -81,7 +84,7 @@
   "theme": {
     "mode": "dark",
     "light": "Ayu Light",
-    "dark": "Terafox - opaque",
+    "dark": "One Dark",
   },
   "terminal": {
     "shell": {

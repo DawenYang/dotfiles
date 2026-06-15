@@ -1,0 +1,8 @@
+{{ if eq .chezmoi.os "windows" -}}
+sourceDir = "C:/Dev/dotfiles"
+{{ else -}}
+sourceDir = "{{ .chezmoi.homeDir }}/Dev/dotfiles"
+
+[interpreters.ps1]
+command = "true"
+{{ end -}}

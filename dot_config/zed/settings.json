@@ -67,6 +67,7 @@
   },
   "buffer_font_family": "CodeNewRoman Nerd Font Mono",
   "ui_font_family": "UbuntuSans Nerd Font Propo",
+  "ui_font_fallbacks": [".SystemUIFont"],
   "ui_font_size": 16,
   "buffer_font_size": 13.0,
   "base_keymap": "JetBrains",

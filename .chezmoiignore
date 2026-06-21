@@ -1,9 +1,9 @@
 {{ if ne .chezmoi.os "windows" }}
-run_once_windows_setup.ps1
+windows_setup.ps1
 {{ end }}
 
 {{ if ne .chezmoi.os "darwin" }}
-run_once_macos_setup.sh
+macos_setup.sh
 {{ end }}
 
 dot_config/nushell/vendor/

@@ -1,5 +1,9 @@
 # WezTerm Keybindings
 
+> **Requires WezTerm nightly.** The `20240203` stable release has a reedline
+> repaint bug with modern Nushell (blank line inserted per keystroke). Install
+> a nightly build — see the repo root [README](../../../README.md#2-install-wezterm).
+
 Leader key: `Ctrl+Space`
 
 ## General

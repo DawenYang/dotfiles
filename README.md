@@ -52,13 +52,24 @@ brew install chezmoi
 
 ### 2. Install WezTerm
 
-```powershell
-# Windows
-winget install wez.wezterm
+> **⚠️ WezTerm nightly is required.** The last stable release (`20240203`,
+> Feb 2024) has a reedline repaint bug with modern Nushell: each keystroke
+> pushes the prompt down, leaving blank lines in the scrollback. This is fixed
+> only in nightly builds. `winget`/`brew` install the stable channel, so on
+> Windows you must install the nightly manually.
 
-# macOS
-brew install --cask wezterm
+```powershell
+# Windows — install the NIGHTLY (winget only tracks stable, which is too old)
+$exe = "$env:TEMP\WezTerm-nightly-setup.exe"
+Invoke-WebRequest -Uri "https://github.com/wezterm/wezterm/releases/download/nightly/WezTerm-nightly-setup.exe" -OutFile $exe
+& $exe /VERYSILENT /SUPPRESSMSGBOXES /NORESTART /CLOSEAPPLICATIONS
+
+# macOS — nightly
+brew install --cask wezterm@nightly
 ```
+
+To upgrade WezTerm later on Windows, re-run the download-and-install command
+above (winget will report "no upgrade" because nightly is off-channel).
 
 ### 3. Configure chezmoi source
 

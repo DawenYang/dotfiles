@@ -10,7 +10,8 @@
   "agent_servers": {
     "claude-acp": {
       "default_config_options": {
-        "model": "default",
+        "mode": "default",
+        "model": "sonnet",
       },
       "type": "registry",
     },
@@ -45,8 +46,10 @@
     "mode": "subtle",
   },
   "agent": {
+    "threads_sidebar": {
+      "position": "right"
+    },
     "dock": "right",
-    "sidebar_side": "right",
     "single_file_review": true,
     "model_parameters": [],
   },
@@ -61,6 +64,9 @@
       "language_servers": ["ty", "ruff"],
       "format_on_save": "on",
     },
+    "Markdown": {
+      "format_on_save": "on"
+    }
   },
   "inlay_hints": {
     "enabled": true,
